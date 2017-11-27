@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AuthPage {
 
-    By idLogin = By.id("index_email");
-    By idPassword = By.id("index_pass");
-    By idSubmit = By.id("index_login_button");
-    By idGoToMyPage = By.id("l_pr");
+    private By idLogin = By.id("index_email");
+    private By idPassword = By.id("index_pass");
+    private By idSubmit = By.id("index_login_button");
+    private By idGoToMyPage = By.id("l_pr");
 
 
     private WebDriver driver;
@@ -24,12 +24,24 @@ public class AuthPage {
 
     public void auth(String login, String password) {
         // Пишем email и пароль
-        driver.findElement(idLogin).sendKeys(login);
-        driver.findElement(idPassword).sendKeys(password);
+        setLogin(login);
+        setPassword(password);
 
         // Нажимаем войти
-        driver.findElement(idSubmit).submit();
+        clickAuth();
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(idGoToMyPage));
+    }
+
+    private void setLogin(String login){
+        driver.findElement(idLogin).sendKeys(login);
+    }
+
+    private void setPassword(String password){
+        driver.findElement(idPassword).sendKeys(password);
+    }
+
+    private void clickAuth(){
+        driver.findElement(idSubmit).submit();
     }
 }
