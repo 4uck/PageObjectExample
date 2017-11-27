@@ -13,6 +13,8 @@ public class AuthPage {
     private By idSubmit = By.id("index_login_button");
     private By idGoToMyPage = By.id("l_pr");
 
+    private By classCaptcha = By.className("popup_box_container");
+
 
     private WebDriver driver;
     private Wait<WebDriver> wait;
@@ -30,18 +32,31 @@ public class AuthPage {
         // Нажимаем войти
         clickAuth();
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(idGoToMyPage));
+        // Проверяем, что не вылезла каптча
+        if (!isCaptcha())
+            wait.until(ExpectedConditions.visibilityOfElementLocated(idGoToMyPage));
     }
 
-    private void setLogin(String login){
+    private boolean isCaptcha() {
+        try {
+            driver.findElement(classCaptcha).isEnabled();
+            System.out.println("This is captcha!!!!!!!!!! Тобi пiзда");
+            return false;
+        } catch (Exception e) {
+            return true;
+        }
+
+    }
+
+    private void setLogin(String login) {
         driver.findElement(idLogin).sendKeys(login);
     }
 
-    private void setPassword(String password){
+    private void setPassword(String password) {
         driver.findElement(idPassword).sendKeys(password);
     }
 
-    private void clickAuth(){
+    private void clickAuth() {
         driver.findElement(idSubmit).submit();
     }
 }
