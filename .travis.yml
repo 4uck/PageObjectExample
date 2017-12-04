@@ -1,6 +1,11 @@
 language: java
+env:
+  global:
+    # set PATH to include desired firefox as the firefox-addon doesn't seem to work properly
+    - PATH="/tmp/firefox:$PATH"
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  - export DISPLAY=:99.0
+  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16
 script: mvn clean test
+addons:
+  firefox: latest
