@@ -8,13 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AuthPage {
 
+    ///////LOCATORS/////////
     private By idLogin = By.id("index_email");
     private By idPassword = By.id("index_pass");
     private By idSubmit = By.id("index_login_button");
     private By idGoToMyPage = By.id("l_pr");
-
     private By classCaptcha = By.className("popup_box_container");
-
 
     private WebDriver driver;
     private Wait<WebDriver> wait;
