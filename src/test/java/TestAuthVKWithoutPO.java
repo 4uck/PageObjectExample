@@ -50,7 +50,7 @@ public class TestAuthVKWithoutPO {
         }
 
         // Сравниваем текущий url с ожидаемым знчением
-        assertThat(driver.getCurrentUrl(), is("https://vk.com/feed"));
+        assertThat(driver.getCurrentUrl(), is("https://vk.com/"));
     }
 
     private boolean isCaptcha() {
