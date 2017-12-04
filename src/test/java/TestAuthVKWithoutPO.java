@@ -3,6 +3,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,8 +23,8 @@ public class TestAuthVKWithoutPO {
 //        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
         System.setProperty("webdriver.gecko.driver", "./drivers/Unix/geckodriver");
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        driver = new RemoteWebDriver(capabilities);
-        driver.manage().window().maximize();
+        driver = new FirefoxDriver(capabilities);
+//        driver.manage().window().maximize();
         driver.get("https://vk.com");
         wait = new WebDriverWait(driver, 7, 1000);
     }

@@ -14,8 +14,8 @@ public class Settings {
 //        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
         System.setProperty("webdriver.gecko.driver", "./drivers/Unix/geckodriver");
         driver = new FirefoxDriver();
-        driver.manage().window().maximize();
+//        driver.manage().window().maximize();
         driver.get("https://vk.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
