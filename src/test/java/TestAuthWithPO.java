@@ -28,6 +28,6 @@ public class TestAuthWithPO extends Settings {
         authPage.auth("email", "password");
 
         // Сравниваем текущий url с ожидаемым значением
-        assertThat(driver.getCurrentUrl(), is("https://vk.com/feed"));
+        assertThat(driver.getCurrentUrl(), is("https://vk.com/"));
     }
 }
