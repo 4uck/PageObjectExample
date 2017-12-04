@@ -10,7 +10,9 @@ public class Settings {
     protected static WebDriver driver;
 
     protected static void uploadApp() {
-        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
+
+//        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "./drivers/Unix/geckodriver");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://vk.com");

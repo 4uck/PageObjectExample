@@ -19,7 +19,8 @@ public class TestAuthVKWithoutPO {
 
     @BeforeClass
     public static void setUp() {
-        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
+//        System.setProperty("webdriver.gecko.driver", "./drivers/Mac/geckodriver");
+        System.setProperty("webdriver.gecko.driver", "./drivers/Unix/geckodriver");
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         driver = new RemoteWebDriver(capabilities);
         driver.manage().window().maximize();
