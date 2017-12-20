@@ -13,7 +13,7 @@ public class TestAuthWithPO extends Settings {
 
     @BeforeClass
     public static void setUp() throws Exception {
-        uploadApp();
+        init();
         authPage = new AuthPage(driver);
     }
 

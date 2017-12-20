@@ -8,6 +8,15 @@
     <artifactId>PageObject</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+    </build>
+
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -21,5 +30,28 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <!-- browsers -->
+        <profile>
+            <id>Chrome</id>
+            <properties>
+                <browser>1</browser>
+                <driver>webdriver.chrome.driver</driver>
+                <driverPath>/chromedriver</driverPath>
+            </properties>
+        </profile>
+        <profile>
+            <id>Firefox</id>
+            <properties>
+                <browser>2</browser>
+                <driver>webdriver.gecko.driver</driver>
+                <driverPath>/geckodriver</driverPath>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+    </profiles>
 
 </project>
